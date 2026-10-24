@@ -24,7 +24,7 @@ public class MovieWatchlist {
             addMovie(movies, scanner);
         }
         else if(userChoice == 2){
-
+            viewMovies(movies, scanner);
         }
         else if(userChoice == 3){
 
@@ -41,7 +41,9 @@ public class MovieWatchlist {
         String mov = scanner.nextLine();
         movies.add(mov);
         System.out.println(mov + " has been added!");
-        System.out.println(movies);
+    }
+    public static void viewMovies(ArrayList<String> movies, Scanner scanner){
+        System.out.println("Current Movies: " + movies);
 
     }
 
