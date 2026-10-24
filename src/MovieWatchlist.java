@@ -1,3 +1,4 @@
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,6 +13,7 @@ public class MovieWatchlist {
 
         while(running){
 
+
         System.out.println("======Movie Watchlist======");
         System.out.println("1. Add Movies");
         System.out.println("2. View MovieList");
@@ -24,7 +26,7 @@ public class MovieWatchlist {
             addMovie(movies, scanner);
         }
         else if(userChoice == 2){
-            viewMovies(movies, scanner);
+            viewMovies(movies, scanner, running);
         }
         else if(userChoice == 3){
 
@@ -42,8 +44,17 @@ public class MovieWatchlist {
         movies.add(mov);
         System.out.println(mov + " has been added!");
     }
-    public static void viewMovies(ArrayList<String> movies, Scanner scanner){
+    public static void viewMovies(ArrayList<String> movies, Scanner scanner, boolean running){
         System.out.println("Current Movies: " + movies);
+        System.out.println("Would you likes to make any changes? 1. Yes || 2. No");
+        int userAns = 0;
+        userAns = scanner.nextInt();
+        if(userAns == 1){
+            System.out.println("1. Add Movie || 2. Remove Movie || 3. Exit");
+        }
+        else{
+            running = false;
+        }
 
     }
 
