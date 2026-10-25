@@ -67,15 +67,22 @@ public class MovieWatchlist {
             }
         }
         public static void removeMovies(ArrayList<String> movies, Scanner scanner){
-            int removeMenu = 0;
-
-            for(int i = 0; i<movies.size(); i++){
-
+            if(!movies.isEmpty()){
                 System.out.println("Select a Movie to remove");
-                System.out.println((i+1) + movies.size());
 
-                removeMenu = Integer.parseInt(scanner.nextLine());
+                for(int i = 0; i<movies.size(); i++){
+                    System.out.println((i+1) + ". " + movies.get(i));
+                }
+                int removeMenu = Integer.parseInt(scanner.nextLine());
+                int indexx = removeMenu -1;
+                String removed = movies.remove(indexx);
+                System.out.println(removed + " was removed!");
+                System.out.println("Updated List: " + movies);
             }
+            else{
+                System.out.println("YOU HAVE NO CURRENT MOVIES");
+            }
+
         }
 
     }
