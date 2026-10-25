@@ -24,7 +24,7 @@ public class MovieWatchlist {
                 } else if (userChoice == 2) {
                     viewMovies(movies, scanner, running);
                 } else if (userChoice == 3) {
-
+                    removeMovies(movies, scanner);
                 } else if (userChoice == 4) {
                     System.out.println("EXITING PROGRAM!");
                     running = false;
@@ -35,14 +35,13 @@ public class MovieWatchlist {
             }
         }
     }
-
-        public static void addMovie (ArrayList < String > movies, Scanner scanner){
+        public static void addMovie (ArrayList <String> movies, Scanner scanner){
             System.out.println("What movie would you like to add?");
             String mov = scanner.nextLine();
             movies.add(mov);
             System.out.println(mov + " has been added!");
         }
-        public static void viewMovies (ArrayList < String > movies, Scanner scanner ,boolean running){
+        public static void viewMovies (ArrayList <String> movies, Scanner scanner, boolean running){
             System.out.println("Current Movies: " + movies);
             System.out.println("Would you likes to make any changes? 1. Yes || 2. No");
             int userAns = 0;
@@ -56,6 +55,7 @@ public class MovieWatchlist {
                     addMovie(movies, scanner);
                 }
                 else if(submenu == 2){
+                    removeMovies(movies, scanner);
 
                 }
                 else if(submenu == 3){
@@ -63,8 +63,21 @@ public class MovieWatchlist {
                 }
             } else {
                 running = false;
+
             }
         }
+        public static void removeMovies(ArrayList<String> movies, Scanner scanner){
+            int removeMenu = 0;
+
+            for(int i = 0; i<movies.size(); i++){
+
+                System.out.println("Select a Movie to remove");
+                System.out.println((i+1) + movies.size());
+
+                removeMenu = Integer.parseInt(scanner.nextLine());
+            }
+        }
+
     }
 
 
